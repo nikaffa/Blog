@@ -9,7 +9,7 @@ const blogRoutes = require('./routes/blogRoutes');
 const app = express();
 
 //connects to mongo database
-const dbURI = 'mongodb+srv://new_user:test123@nodecurse.d4zjx.mongodb.net/NodeCurse?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://___yourmongodbusername____:__yourmongodbpassword___@nodecurse.d4zjx.mongodb.net/NodeCurse?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }) //mongoose connects to the 'NodeCurse' database; 2nd argument is optional to prevent depricational warning
   .then(result => app.listen(3000)) //listen for requests to localhost:3000 after connection to db is completed, returns instance of server
   .catch(err => console.log(err));
