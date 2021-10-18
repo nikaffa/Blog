@@ -1,0 +1,19 @@
+<!--Templates instead of html-->
+<html lang="en">
+  
+<!--includes head that stored in head.ejs-->
+<%- include ('./partials/head.ejs') %>
+
+<body>
+  <!--includes nav that stored in nav.ejs-->
+  <%- include ('./partials/nav.ejs') %>
+
+  <div class="not-found content">
+    <h1>404 - OOPS!</h1>
+    <h2>That page does not exist</h2>
+  </div>
+
+  <!--includes footer that stored in footer.ejs-->
+  <%- include ('./partials/footer.ejs') %>
+</body>
+</html>

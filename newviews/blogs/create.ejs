@@ -1,0 +1,27 @@
+<!--Creates a new blog using ejs templates instead of html-->
+<html lang="en">
+  
+<!--includes head that stored in head.ejs-->
+<%- include ('../partials/head.ejs') %>
+
+<body>
+  <!--includes nav that stored in nav.ejs-->
+  <%- include ('../partials/nav.ejs') %>
+  
+  <!--sends a new blog to the browser using POST request-->
+  <div class="create-blog content">
+    <form action="/blogs" method="POST">
+      <label for="title">Blog title:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="snippet">Blog snippet:</label>
+      <input type="text" id="snippet" name="snippet" required>
+      <label for="body">Blog body:</label>
+      <textarea id="body" name="body" required></textarea>
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <!--includes footer that stored in footer.ejs-->
+  <%- include ('../partials/footer.ejs') %>
+</body>
+</html>

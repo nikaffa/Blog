@@ -1,0 +1,36 @@
+<!--A single blog with a specific id-->
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+<body>
+  <%- include("../partials/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= blog.title %></h2>
+    <div class="content">
+      <p><%= blog.body %></p>
+    </div>
+    <a class="delete" data-doc="<%= blog._id %>"> <!--delete blog with a specific id-->
+      <img src="/trashcan.svg" alt="delete icon">
+    </a> 
+    
+  </div>
+
+  <%- include("../partials/footer.ejs") %>
+
+  <script>
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', event => {
+      const endpoint = `/blogs/${trashcan.dataset.doc}`; //refers to a single blog with the id
+      
+      fetch(endpoint, { //sends to the server a delete request to the endpoint
+        method: 'DELETE'
+      })
+      .then(response => response.json()) //passes the response into a js object
+      .then(data => window.location.href = data.redirect) //redirects back to the blogs page
+      .catch(err => console.log(err));
+    })
+  </script>
+
+</body>
+</html>

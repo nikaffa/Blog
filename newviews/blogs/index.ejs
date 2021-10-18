@@ -1,0 +1,29 @@
+<!--Uses ejs templates instead of html to handle dynamic data-->
+<html lang="en">
+
+<!--includes head that stored in head.ejs-->
+<%- include ('../partials/head.ejs') %>
+
+<body>
+  <!--includes nav that stored in nav.ejs-->
+  <%- include ('../partials/nav.ejs') %> 
+
+  <div class="blogs content">
+    <h2>All Blogs</h2>
+    <!--cycle over all blogs and render the content-->
+    <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <a class="single" href="/blogs/<%= blog._id %>"> <!--access to a single blog doc-->
+          <h3 class="title"><%= blog.title %></h3>
+          <p class="snippet"><%= blog.snippet %></p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no blogs to display...</p>
+    <% } %>
+  </div>
+  
+  <!--includes footer that stored in footer.ejs-->
+  <%- include ('../partials/footer.ejs') %>
+</body>
+</html>
